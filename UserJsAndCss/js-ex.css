@@ -1,0 +1,103 @@
+
+.xy-none {
+  display: none;
+}
+.xy-show {
+  display: block;
+}
+.xy-select-all{
+  user-select: all;
+  cursor: copy;
+}
+
+.xy-ells-2 {
+  /* todo : 双行省略 */
+  /* width: 160px; */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+
+.xy-auto-webs-panel-btn {
+  height: 40px;
+  width: 100px;
+  border-radius: 12px;
+  position: fixed;
+  top: 60px;
+  right: 20px;
+  color: white;
+  background: black;
+  font-weight: border;
+  z-index: 9999;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  font-size: 12px;
+  user-select: none;
+}
+
+.xy-auto-webs-panel-btn:active {
+  box-shadow: inset 1px 1px 2px #babecc, inset -1px -2px 2px white;
+}
+/*.xy-auto-webs-panel-btn:hover {*/
+/*  box-shadow: 2px 2px 5px green,-2px -2px 5px green;*/
+/*}*/
+
+.xy-auto-webs-panel {
+  height: 400px;
+  width: 300px;
+  background: black;
+  overflow: scroll;
+  right: 10px;
+  top: 110px;
+  position: fixed;
+  /*color:yellow;*/
+  z-index: 9999;
+  padding: 10px;
+  /*opacity: 0.7;*/
+  font-size: 12px;
+  border-radius: 8px;
+}
+.xy-auto-webs-panel::-webkit-scrollbar {
+  width: 0 !important;
+}
+.xy-auto-webs-panel-item,
+.xy-auto-webs-panel-item-0,
+.xy-auto-webs-panel-item-1 {
+  display: flex;
+  margin: 5px 0;
+}
+.xy-auto-webs-panel-item-title {
+  width: 80px;
+  text-align: left;
+  font-weight: bolder;
+  font-size: 14px;
+  color: white;
+  user-select: none;
+}
+.xy-auto-webs-panel-item-content {
+  flex: 1;
+  word-spacing: 3px;
+  text-align: left;
+  flex-wrap: wrap;
+  color: skyblue;
+  /*word-break: break-all;*/
+  word-break: break-word;
+  line-height: 1.5;
+}
+.xy-auto-webs-panel-item-img-url {
+  margin-bottom: 10px;
+  user-select: all;
+  cursor: copy;
+}
+
+.xy-auto-webs-panel-item-img {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  user-select: none;
+  filter: none !important;
+}
