@@ -1,4 +1,7 @@
 {
+  "javascript.validate.enable": false,
+  "typescript.validate.enable": false, //是否启用ts 验证
+  "eslint.validate": ["javascript", "javascriptreact", "typescript", "vue"],
   "editor.formatOnSave": true,
   "editor.codeActionsOnSave": {
     // 保存时eslint 修复 --- 暂无eslint

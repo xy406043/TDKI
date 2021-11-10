@@ -1,0 +1,38 @@
+{
+    "manifest_version": 3,
+    "name": "TDKI Info Show",
+    "version": "0.0.1",
+    "description": "展示网站的TDKI信息",
+    "offline_enabled": true,
+    "icons": {
+        "16": "img/16.png"
+    },
+    "permissions": [
+        "activeTab",
+        "clipboardWrite",
+        "clipboardRead"
+    ],
+    "web_accessible_resources": [
+        {
+            "resources": [
+                "**/*.js"
+            ],
+            "matches": [
+                "<all_urls>"
+            ]
+        }
+    ],
+    "content_scripts": [
+        {
+            "matches": [
+                "<all_urls>"
+            ],
+            "js": [
+                "js/content-script.js"
+            ],
+            "css": [
+                "js/use/tdki.css"
+            ]
+        }
+    ]
+}

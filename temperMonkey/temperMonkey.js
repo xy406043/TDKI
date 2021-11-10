@@ -8,13 +8,6 @@
 // @grant        GM_addStyle
 // ==/UserScript==
 
-// 无法引入 fetch 会报错
-
-// 只能使用 Es5 的格式
-// 只是代码中仍然含有部分 es6的语法且 可以生效
-
-// todo 使用 油猴高级用法  GM 命令  可以帮助简化代码
-
 (function () {
   "use strict";
   var showIconsList = [];
