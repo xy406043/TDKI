@@ -1,12 +1,4 @@
 {
-  "javascript.validate.enable": false,
-  "typescript.validate.enable": false, //是否启用ts 验证
-  "eslint.validate": ["javascript", "javascriptreact", "typescript", "vue"],
-  "editor.formatOnSave": true,
-  "editor.codeActionsOnSave": {
-    // 保存时eslint 修复 --- 暂无eslint
-    //   "source.fixAll.eslint": true
-  },
-  "js/ts.implicitProjectConfig.checkJs": true,
-  "js/ts.implicitProjectConfig.experimentalDecorators": true
+  //  "eslint.enable": false,
+  "javascript.validate.enable": false
 }

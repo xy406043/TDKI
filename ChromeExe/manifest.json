@@ -4,11 +4,24 @@
     "version": "0.0.1",
     "description": "展示网站的TDKI信息",
     "offline_enabled": true,
+    "background": {
+        "service_worker": "js/background.js"
+    },
+    "action": {
+        "default_popup": "index.html"
+    },
     "icons": {
-        "16": "img/16.png"
+        "16": "img/16.png",
+        "32": "img/16.png",
+        "64": "img/16.png"
     },
     "permissions": [
+        "scripting",
         "activeTab",
+        "tabs",
+        "storage",
+        "webNavigation",
+        "contextMenus",
         "clipboardWrite",
         "clipboardRead"
     ],
@@ -28,10 +41,10 @@
                 "<all_urls>"
             ],
             "js": [
-                "js/content-script.js"
+                "js/content/direct.js"
             ],
             "css": [
-                "js/use/tdki.css"
+                "js/use/prefer/tdki.css"
             ]
         }
     ]

@@ -6,7 +6,13 @@ let showIconsList = [];
 let showImagesList = [];
 const httpRegex = new RegExp(/http/);
 
+// 当作为 chrome 插件使用时，页面已经完成加载，此方法无用
 window.onload = () => {
+  loadScriprt();
+};
+
+loadScriprt();
+function loadScriprt() {
   let script = document.createElement("script");
   script.src = "https://cdn.bootcdn.net/ajax/libs/fetch/3.6.2/fetch.js";
   script.setAttribute("type", "text/javascript");
@@ -41,7 +47,7 @@ window.onload = () => {
       // 只有 fetch 引入成功时才可以使用
       if (hasLoadFetch) {
         let feil = document.querySelector('link[rel="manifest"]')?.href;
-        console.log("%c查找mainfest信息", "color:orange", feil);
+        // console.log("%c查找mainfest信息", "color:orange", feil);
         if (feil) {
           fetch(feil).then(async (res) => {
             let data = await res.json();
@@ -55,12 +61,12 @@ window.onload = () => {
               showIconsList.push(url);
             });
 
-            console.log(
-              "%c预存-mainfest.json数据 ",
-              "color:blue",
-              data,
-              showIconsList
-            );
+            // console.log(
+            //   "%c预存-mainfest.json数据 ",
+            //   "color:blue",
+            //   data,
+            //   showIconsList
+            // );
 
             setTimeout(function () {
               refreshIconImg();
@@ -75,7 +81,7 @@ window.onload = () => {
       img.onload = function () {
         showIconsList.push(img.src);
 
-        console.log("获取到favcion", img.src, showIconsList);
+        // console.log("获取到favcion", img.src, showIconsList);
         setTimeout(function () {
           refreshIconImg();
         }, 2000);
@@ -100,7 +106,7 @@ window.onload = () => {
           subMetas.push(metas[i].getAttribute("content"));
         }
       }
-      console.log("描述List", subMetas);
+      // console.log("描述List", subMetas);
       return subMetas;
     }
 
@@ -123,7 +129,7 @@ window.onload = () => {
           }
         });
       }
-      console.log("预览图List", subImgs);
+      // console.log("预览图List", subImgs);
       showImagesList = subImgs;
     }
 
@@ -146,11 +152,11 @@ window.onload = () => {
     // 获取网页预览图
     getImgs();
 
-    console.log("%c获取网页title", "color:skyblue", pageTitle);
-    console.log("%c获取网页description", "color:skyblue", desc);
-    console.log("%c获取网页关键词", "color:skyblue", keywords);
-    console.log("%c获取网页图标", "color:green", showIconsList);
-    console.log("%c获取网页预览图", "color:green", showImagesList);
+    // console.log("%c获取网页title", "color:skyblue", pageTitle);
+    // console.log("%c获取网页description", "color:skyblue", desc);
+    // console.log("%c获取网页关键词", "color:skyblue", keywords);
+    // console.log("%c获取网页图标", "color:green", showIconsList);
+    // console.log("%c获取网页预览图", "color:green", showImagesList);
     addContent();
 
     // 获取之后 添加 遮罩面板到项目内部
@@ -207,7 +213,7 @@ window.onload = () => {
         content.id = `xy-auto-webs-panel-item-content-${index + 1}`;
 
         // content 下 添加自定义数量的节点
-        item.content = [...new Set(item.content)]
+        item.content = [...new Set(item.content)];
         item.content.forEach((imgItem, imgIndex) => {
           let imgOuter = document.createElement("div");
           imgOuter.className = "xy-auto-webs-panel-item-img-outer";
@@ -264,7 +270,7 @@ window.onload = () => {
     }
   };
   document.body.appendChild(button);
-};
+}
 
 // 更新展示 Icon
 // 清空原有节点 - 重新
