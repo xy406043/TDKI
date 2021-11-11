@@ -8,7 +8,7 @@
 >  webs_TDKI_fetch 脚本
 >  展示网站TDKI 信息
 
-<img src="https://i.loli.net/2021/11/10/fPjDx7BbnyXmLei.png" height = "200"  alt="TDKI预览图" align=center />
+<img src="https://anf-bk.oss-cn-hangzhou.aliyuncs.com/81fbe742f7b94b35ab2c4df96c043cac" height = "200"  alt="TDKI预览图" align=center />
 
 
 ### To
