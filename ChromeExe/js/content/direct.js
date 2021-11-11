@@ -1,11 +1,10 @@
 // content-script 注入 inject-scripts
 // content-script 无法调用 页面本身的变量 ，如需使用 需要注入ineject-scripts 的形式
 
-
+let LocalPageDataInfo = {};
 let showIconsList = [];
 let showImagesList = [];
 const httpRegex = new RegExp(/http/);
-
 
 // window.onload = () => {
 //   loadScriprt();
@@ -24,27 +23,20 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
   sendResponse("background你好，我收到了你的消息！");
 });
 
-
 // 更新页面数据重新发送给后台
-function refreshIconImg() {}
-
+function refreshIconImg() {
+  LocalPageDataInfo.icons = showIconsList;
+  chrome.runtime.sendMessage(LocalPageDataInfo, (res) => {
+    // console.log("来自后台的回复数据", res);
+  });
+}
 
 async function loadScriprt(id) {
+  LocalPageDataInfo = [];
   showIconsList = [];
   showImagesList = [];
-  let script = document.createElement("script");
-  script.src = "https://cdn.bootcdn.net/ajax/libs/fetch/3.6.2/fetch.js";
-  script.setAttribute("type", "text/javascript");
 
-  // top Level 无法使用 async await
-  // todo 修改为油猴插件 / chrome插件
-  script.onload = function () {
-    loadInfo(true);
-  };
-  // 引入 外部脚本 在某些网站比如 github 会因为其安全策略CSP 而载入失败  为了确保基本功能正常使用 - 需要在加载失败时 不调用 外部库方法
-  script.onerror = function () {
-    loadInfo(false);
-  };
+  loadInfo(true);
 
   function loadInfo(hasLoadFetch) {
     // ~~ 获取网页的 Icon
@@ -189,10 +181,10 @@ async function loadScriprt(id) {
         icons: showIconsList,
         imgs: showImagesList,
       };
+      LocalPageDataInfo = pageData;
       chrome.runtime.sendMessage(pageData, (res) => {
         // console.log("来自后台的回复数据", res);
       });
     }
   }
-  document.body.appendChild(script);
 }
