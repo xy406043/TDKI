@@ -132,11 +132,17 @@ async function loadScriprt(id) {
       // 摆烂 - 没有的不会匹配到 - 就这样吧
       for (let i = 0; i < metas.length; i++) {
         catchProperty.forEach((y) => {
+          let imgContent = metas[i].getAttribute("content");
+
+          let url = httpRegex.test(imgContent)
+            ? imgContent
+            : document.location.origin + "/" + imgContent;
+
           if (textArrDes.includes(metas[i].getAttribute(y))) {
-            subImgs.push(metas[i].getAttribute("content"));
+            subImgs.push(url);
           }
           if (richArrs.includes(metas[i].getAttribute(y))) {
-            subImgs.push(metas[i].getAttribute("content"));
+            subImgs.push(url);
           }
         });
       }
