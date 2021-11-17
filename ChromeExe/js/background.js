@@ -6,6 +6,7 @@ const excludePages = [
   "chrome://newtab/",
   "chrome://extensions/",
   "chrome://bookmarks",
+  "chrome-extension://"
 ];
 
 async function getCurrentTab() {
@@ -38,7 +39,7 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
 //  监听tab页面变化 - 切换路由、状态变更等
 chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
   console.log("页面发生变化 刷新 or 新建", tabId, changeInfo,tab);
-  if (excludePages.includes(changeInfo.url)) {
+  if (excludePages.some(x => changeInfo.url.includes(x))) {
     return;
   }
   if (changeInfo.status === "loading" || !changeInfo.url) {
@@ -55,7 +56,7 @@ chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
 chrome.tabs.onActivated.addListener(async (activeInfo) => {
   let tab = await getCurrentTab();
   console.log("选项卡发生变化", activeInfo, tab);
-  if (excludePages.includes(tab.url)) {
+  if (excludePages.some(x => tab.url.includes(x))) {
     return;
   }
 

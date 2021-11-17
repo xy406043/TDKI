@@ -9,6 +9,7 @@ const excludePages = [
   "chrome://newtab/",
   "chrome://extensions/",
   "chrome://bookmarks",
+  "chrome-extension://"
 ];
 const httpRegex = new RegExp(/http/);
 
@@ -29,8 +30,11 @@ async function getCurrentTab() {
 // ~~ 因此切换思路 使用 storage 获取数据
 chrome.storage.sync.get(["LocalPageData"], async function (result) {
   let tab = await getCurrentTab();
+  console.log("获取链接",tab.url)
+
+
   // 特殊页面时 不展示
-  if (excludePages.includes(tab.url)) {
+  if (excludePages.some(x => tab.url.includes(x))) {
     noneContent();
     return;
   }
