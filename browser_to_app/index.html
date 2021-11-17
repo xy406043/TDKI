@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="index.js"></script>
+    <link rel="stylesheet" href="index.css">
+    <title>BrowserApp</title>
+</head>
+
+<body>
+
+    <div class="xy_app">
+        <!-- 通过 软件Contents 包下  Info.plist 中的 CFBundleURLSchemes 存在则可以打开，否则需要注册 -->
+
+
+        <!-- 打开指定目录 vscode://file/${filePath}  只是浏览器环境中无法获取到本地目录  或者 vscode的历史记录   -->
+        <!-- 而且通过此方式打开的 会把原有VScode项目消灭一个再打开新的，且被消灭的不会记录再历史中 -->
+        <!-- <a href="vscode://file/Users/xuyuan/Our/vue_collect/vue3.0_collect">vscode</a>  -->
+
+        <!--微信可以访问，但是允许之后 无法调用微信，老傻逼腾讯了 -->
+        <!-- <a href="weixin://">微信</a> -->
+
+        <!-- 需要的需要进行注册 -->
+        <!-- https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html#//apple_ref/doc/uid/TP40009249-SW1 -->
+        <!-- firefox/chrome info.plist里的 content只有file http https -->
+
+        <a href="notion://">notion</a>
+
+        <a href="ksoqing://">WPS</a>
+
+        <a href="wemeet://">腾讯会议</a>
+    </div>
+
+</body>
+
+</html>

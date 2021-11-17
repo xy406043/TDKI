@@ -1,0 +1,25 @@
+{
+    "manifest_version": 3,
+    "name": "快速打开PC 应用",
+    "version": "0.0.1",
+    "description": "通过URL Scheme从浏览器打开应用",
+    "offline_enabled": true,
+    "action": {
+        "default_popup": "index.html"
+    },
+    "icons": {
+        "16": "img/17.png",
+        "32": "img/17.png",
+        "64": "img/17.png"
+    },
+    "permissions": [
+        "scripting",
+        "activeTab",
+        "tabs",
+        "storage",
+        "webNavigation",
+        "contextMenus",
+        "clipboardWrite",
+        "clipboardRead"
+    ]
+}

@@ -1,0 +1,14 @@
+.xy_app {
+  padding: 10px;
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+}
+
+.xy_app a {
+  font-size: 12px;
+  margin: 10px 0;
+}
+.xy_app a::before {
+  /* content: "*"; */
+}
